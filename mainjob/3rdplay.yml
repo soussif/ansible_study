@@ -1,0 +1,4 @@
+- hosts: prod
+  tasks:
+    - name: add user devs 
+      group: name=devs state=present gid=1887

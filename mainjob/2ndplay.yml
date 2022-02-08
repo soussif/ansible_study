@@ -1,0 +1,5 @@
+---
+- hosts: prod
+  tasks:
+    - name: add user admin
+      user: name=admin uid=1889 group=admins shell=/bin/bash

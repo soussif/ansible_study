@@ -1,0 +1,35 @@
+---
+- hosts: prod
+  tasks:
+    - name: install apache web service
+      yum: name=httpd state=present
+      notify:
+        - h1
+      ignore_errors: True
+
+    - name: create file1
+      file: path=/tstfile1 state=touch
+      notify:
+        - h1
+    - meta: flush_handlers
+
+    - name: create file2
+      file: path=/tstfile2 state=touch
+
+    - name: create file3
+      file: path=/tstfile3 state=touch
+      notify:
+        - h1
+    - meta: flush_handlers
+
+    - name: create file4
+      file: path=/tstfile4 state=touch
+      notify:
+        - h1
+
+
+  handlers:
+    - name: h1
+      # file: path=/pass state=touch
+      # service: name=httpd state=started
+      shell: "date >> /time"

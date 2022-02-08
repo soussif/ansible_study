@@ -1,0 +1,23 @@
+---
+- hosts: prod
+  tasks:
+    - name: create 777 file
+      file: path=/file1.txt state=touch mode=777
+    - name: delete file
+      file: path=/file1.txt state=absent
+
+
+- hosts: all
+  tasks:
+    - name: create 777 file
+      file: path=/file1.txt state=touch mode=777
+    - name: delete file
+      file: path=/file1.txt state=absent
+
+
+- hosts: local
+  tasks:
+    - name: create 777 file
+      file: path=/file1.txt state=touch mode=777
+    - name: delete file
+      file: path=/file1.txt state=absent      

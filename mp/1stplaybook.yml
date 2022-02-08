@@ -1,0 +1,14 @@
+---
+- hosts: prod
+  #roles:
+  #  - role1
+  tasks:
+    - name: create 777 file
+      file: path=/file1.txt state=touch mode=777
+      notify:
+        - h1
+    - name: create 000 file
+      file: path=/file1 state=touch mode=000
+  handlers:
+    - name: h1
+      file: path=/file.txt mode=666

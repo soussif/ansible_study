@@ -1,0 +1,5 @@
+---
+- name: create fileB
+  file: path=/fileB state=touch
+  notify:
+    - h2

@@ -1,0 +1,4 @@
+---
+- import_playbook: 1stplay.yml
+- import_playbook: 2ndplay.yml
+- import_playbook: 3rdplay.yml

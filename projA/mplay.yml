@@ -1,0 +1,27 @@
+---
+- hosts: prod
+  gather_facts: no
+  vars:
+   - file_path: /fileX
+   - x: "yes"
+
+  roles:
+    - r1
+    - r2
+
+  tasks:
+    - name: create fileX
+      file: path={{  item  }} state=touch
+      with_items:
+        - /root/file1
+        - /root/file2
+        - /root/file3
+    - name: create fileY
+      file: path={{  xyz  }} state=touch
+      loop:
+        - /root/file4
+        - /root/file5
+        - /root/file6
+      loop_control:
+        loop_var: xyz
+      when: x == "yes" or y == "yes"
