@@ -3,3 +3,25 @@
   file: path=/fileB state=touch
   notify:
     - h2
+
+- name: tasks block
+  block:
+    - name: btask1
+      file: path=/bfile1 state=touch
+    - name: btask2
+      file: path=/dir/bfile2 state=touch
+    - name: btask3
+      file: path=/bfile3 state=touch
+
+  always:
+    - name: always protected task1
+      file: path=/profile1 state=touch
+    - name: protected task2
+      file: path=/profile2 state=touch
+
+  rescue:
+    - name: rescue help task
+      file: path=/help state=touch
+
+- name: btaskZ
+  file: path=/bfileZ state=touch

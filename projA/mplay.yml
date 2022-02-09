@@ -41,14 +41,14 @@
       debug:
         msg: "files are {{ fileslist.stdout_lines }}"
 
-    # - name: empty file
-    #   file: path=/filexyz state=absent
+    - name: empty file
+      file: path=/filexyz state=absent
 
     - name: create file
       file: path=/filexyz state=touch
 
     - name: file content
-      shell: "cat /filexyz"
+      shell: cat /filexyz
       register: content
 
     - name: print file content
@@ -64,7 +64,7 @@
       register: newcontent
 
     - name: del not empty file
-      shell: rm -f /filexyz
+      file: path=/filexyz state=absent
       when: newcontent.stdout != ""
 
     - name: print file newcontent
