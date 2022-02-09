@@ -26,3 +26,47 @@
         loop_var: xyz
       when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7") or (ansible_facts['distribution_file_variety'] == "RedHat" and ansible_facts['distribution_version'] == "8")
       #when: x == "yes" or y == "yes"
+
+    - name: print msg
+      debug:
+        #msg: "hello"
+        #var: name
+        msg: "my name is {{ myname }}"
+
+    - name: list file
+      shell: "ls /root"
+      register: fileslist
+
+    - name: print fileslist
+      debug:
+        msg: "files are {{ fileslist.stdout_lines }}"
+
+    # - name: empty file
+    #   file: path=/filexyz state=absent
+
+    - name: create file
+      file: path=/filexyz state=touch
+
+    - name: file content
+      shell: "cat /filexyz"
+      register: content
+
+    - name: print file content
+      debug:
+        var: content.stdout
+
+    - name: edit file
+      shell: echo "hi" > /filexyz
+      when: content.stdout == ""
+
+    - name: print newfilecontent
+      shell: cat /filexyz
+      register: newcontent
+
+    - name: del not empty file
+      shell: rm -f /filexyz
+      when: newcontent.stdout != ""
+
+    - name: print file newcontent
+      debug:
+        var: newcontent.stdout
