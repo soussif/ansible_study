@@ -1,0 +1,19 @@
+dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos
+dnf distro-sync
+reboot
+
+ssh-keygen -t rsa
+ssh-copy-id 192.168.5.73
+ssh 192.168.5.73
+
+
+ ansible prod -m setup
+
+
+ touch roles/{r1,r2}/{tasks,handlers}/main.yml
+
+ ansible-playbook mproj.yml
+ ansible-playbook mproj.yml  -e
+ ansible all -i 192.168.5.73, -m file -a "path=/file1 state=absent"
+ ansible all -i 192.168.5.73, -m yum -a "name=openssh state=latest"
+ ansible-playbook mproj.yml -e "x=no"

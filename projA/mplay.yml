@@ -1,6 +1,6 @@
 ---
 - hosts: prod
-  gather_facts: no
+  #gather_facts: no
   vars:
    - file_path: /fileX
    - x: "yes"
@@ -24,4 +24,5 @@
         - /root/file6
       loop_control:
         loop_var: xyz
-      when: x == "yes" or y == "yes"
+      when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7") or (ansible_facts['distribution_file_variety'] == "RedHat" and ansible_facts['distribution_version'] == "8")
+      #when: x == "yes" or y == "yes"
