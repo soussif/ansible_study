@@ -71,7 +71,9 @@ galera_new_cluster
 
 
  ---------------
- apt-get install nginx
+apt-get install nginx
 systemctl start nginx
 systemctl enable nginx
-  apt-get install python python-setuptools python-dev build-essential python-pip python-mysqldb
+apt-get install python python-setuptools python-dev build-essential python-pip python-mysqldb
+apt-get install python-dev default-libmysqlclient-dev libssl-dev
+pip install flask flask-mysql uwsgi
