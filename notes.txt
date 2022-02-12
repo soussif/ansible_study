@@ -19,8 +19,8 @@ ssh 192.168.5.73
  ansible-playbook mproj.yml -e "x=no"
 
  galera mariadb IP
- centos-02 192.168.5.73
- centos-03 192.168.5.234
+ centos-02 192.168.5.42
+ centos-03 192.168.5.46
  ubuntu http://192.168.5.122/
 
 
@@ -77,3 +77,30 @@ systemctl enable nginx
 apt-get install python python-setuptools python-dev build-essential python-pip python-mysqldb
 apt-get install python-dev default-libmysqlclient-dev libssl-dev
 pip install flask flask-mysql uwsgi
+
+-------------
+ CREATE database employee_db;
+ show databases;
+ use employee_db;
+ SHOW TABLES;
+https://github.com/Dos2009/AAC-Lab1
+
+  mysql -uroot employee_db < employee_db.sql
+
+  SELECT * FROM employees;
+------
+web serber
+cp app.service /etc/systemd/system/
+vi /etc/systemd/system/app.service
+systemctl daemon-reload
+systemctl status app
+systemctl enable app
+systemctl start app
+systemctl status app
+/usr/local/bin/uwsgi --ini app.ini
+pip install pip --upgrade
+pip3 install pip --upgrade
+
+--------
+cp app /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled/
