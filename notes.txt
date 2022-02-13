@@ -5,7 +5,8 @@ reboot
 ssh-keygen -t rsa
 ssh-copy-id 192.168.5.73
 ssh 192.168.5.73
-
+copy cat ~/.ssh/id_rsa.pub  to ~/.ssh/authorized_keys
+and then ssh as root
 
  ansible prod -m setup
 
