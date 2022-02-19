@@ -1,0 +1,3 @@
+---
+- name: fix_owns
+  command: chown ubuntu:ubuntu /home/ubuntu -R

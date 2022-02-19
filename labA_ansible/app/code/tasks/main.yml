@@ -1,0 +1,16 @@
+---
+# - name: Check WDir exist
+#   stat:
+#     path: /home/ubuntu/labA/pro/
+#   register: result
+
+- name: Create WDirectory
+  file: path=/home/ubuntu/labA/pro/ state=directory
+
+
+- name: copy app files
+  copy: src=simple-webapp dest=/home/ubuntu/labA/pro/
+  notify:
+    - fix_owns
+
+- meta: flush_handlers

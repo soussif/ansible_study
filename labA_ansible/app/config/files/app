@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    server_name 192.168.5.122;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ubuntu/labA/pro/simple-webapp/app.sock;
+    }
+}
+
+
