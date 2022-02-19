@@ -113,3 +113,10 @@ ansible-playbook mplay.yml -u centos -k
 inside the mplay:
       become: yes
       become_user: centos
+
+encrypt a var file with: ansible-vault encrypt r1/vars/main.yml  put the key two times
+ansible-vault decrypt r1/vars/main.yml
+ansible-vault edit r1/vars/main.yml #edit the file
+ansible-vault create r1/vars/main.yml # it does create and encrypt
+then when you run the command as: ansible-playbook mplay.yml --ask-vault-pass
+or ansible-playbook mplay.yml --vault-password-file code
