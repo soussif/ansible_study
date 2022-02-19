@@ -3,10 +3,10 @@ Description=uWSGI instance to serve myproject
 After=network.target
 
 [Service]
-User=dos
+User=ubuntu
 Group=www-data
 
-WorkingDirectory=/home/dos/labA/pro/simple-webapp
+WorkingDirectory=/home/ubuntu/pro/simple-webapp
 Environment="PATH=/usr/local/bin/"
 ExecStart=/usr/local/bin/uwsgi --ini app.ini
 

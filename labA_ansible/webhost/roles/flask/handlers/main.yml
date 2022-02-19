@@ -1,0 +1,10 @@
+---
+- name: install_flask
+  pip:
+    name:
+      - flask
+      - flask-mysql
+      - uwsgi
+
+- name: reload_firewall
+  command: ufw reload
