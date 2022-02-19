@@ -16,6 +16,7 @@
     name:
       - mariadb-server
       - MariaDB-client
+      - python3-PyMySQL
     state: latest
 
 - name: Enable and start MariaDB Service

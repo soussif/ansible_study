@@ -90,7 +90,7 @@ https://github.com/Dos2009/AAC-Lab1
 
   SELECT * FROM employees;
 ------
-web serber
+web server
 cp app.service /etc/systemd/system/
 vi /etc/systemd/system/app.service
 systemctl daemon-reload
@@ -105,3 +105,11 @@ pip3 install pip --upgrade
 --------
 cp app /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled/
+
+-------
+run ansible as a different user
+ansible-playbook mplay.yml -u centos -k
+
+inside the mplay:
+      become: yes
+      become_user: centos

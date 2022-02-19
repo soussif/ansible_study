@@ -1,0 +1,10 @@
+---
+- hosts: prod
+  vars:
+    - ansible_become_pass: centos
+  tasks:
+    - name: create fileX
+      file: path=/home/centos/fileX state=touch
+      become: yes
+      become_user: root
+      become_method: su
