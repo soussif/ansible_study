@@ -5,7 +5,7 @@ from MySQLdb import _mysql
 
 app = Flask(__name__)
 
-conn =MySQLdb.connect("192.168.122.31","appuser","appuser","employee_db")
+conn =MySQLdb.connect("192.168.5.73","appuser","appuser","employee_db")
 cursor = conn.cursor()
 
 @app.route("/")

@@ -1,10 +1,10 @@
 server {
     listen 80;
-    server_name 192.168.122.118;
+    server_name 192.168.5.122;
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/home/dos/labA/pro/simple-webapp/app.sock;
+        uwsgi_pass unix:/root/ansible_study/labA/pro/simple-webapp/app.sock;
     }
 }
 
