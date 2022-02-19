@@ -1,0 +1,3 @@
+we need
+1* ubuntu v18 to run the app and nginx and flask
+2* centos v8 to run the db cluster
