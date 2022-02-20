@@ -120,3 +120,35 @@ ansible-vault edit r1/vars/main.yml #edit the file
 ansible-vault create r1/vars/main.yml # it does create and encrypt
 then when you run the command as: ansible-playbook mplay.yml --ask-vault-pass
 or ansible-playbook mplay.yml --vault-password-file code
+
+
+-----------
+ansible-galaxy to share codes https://galaxy.ansible.com/
+you can get roles or full blown project called collection
+you can install with
+#roles
+ansible-galaxy install arista.eos-route-control -p .
+ansible-galaxy install singleplatform-eng.users -p .
+
+#collection
+ansible-galaxy collection install arista.eos -p .
+
+if you want to intiate role structure
+ansible-galaxy init test_role_galaxy
+
+-------
+Step 1: Go to the /etc/yum.repos.d/ directory.
+
+[root@autocontroller ~]# cd /etc/yum.repos.d/
+Step 2: Run the below commands
+ sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+ sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+Step 3: Now run the yum update
+[root@autocontroller ~]# yum update -y
+
+-----
+download the bundle
+tar -xvf ansible-bundle
+cd ansible
+vi inventory
+./setup.sh
