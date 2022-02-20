@@ -1,0 +1,12 @@
+ansible-galaxy to share codes https://galaxy.ansible.com/
+you can get roles or full blown project called collection
+you can install with
+#roles
+ansible-galaxy install arista.eos-route-control -p .
+ansible-galaxy install singleplatform-eng.users -p .
+
+#collection
+ansible-galaxy collection install arista.eos -p .
+
+if you want to intiate role structure
+ansible-galaxy init test_role_galaxy
